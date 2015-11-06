@@ -165,8 +165,6 @@ class QTSServerPrefs : public QTSSPrefs
                  
         UInt32  GetNumThreads()                   { return fNumThreads; } //short tasks threads
         UInt32  GetNumBlockingThreads()           { return fNumMsgThreads; } //return the number of threads that long tasks will be scheduled on -- RTSP processing for example.
-        
-        Bool16  GetDisableThinning()              { return fDisableThinning; }
 
         UInt16  GetMonitorLANPort()			{ return fMonitorLANPort; }       
         UInt16  GetMonitorWANPort()         { return fMonitorWANPort; }  
@@ -239,7 +237,6 @@ class QTSServerPrefs : public QTSSPrefs
         
         Bool16  fCloseLogsOnWrite;
         
-        Bool16 fDisableThinning;
         UInt16 fMonitorLANPort;    
         UInt16 fMonitorWANPort;
 		UInt16 fRedisPort;
