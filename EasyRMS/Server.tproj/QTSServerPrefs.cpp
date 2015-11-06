@@ -94,8 +94,8 @@ QTSServerPrefs::PrefInfo QTSServerPrefs::sPrefInfo[] =
     { kDontAllowMultipleValues, "500",      NULL                    },  //33 max_retransmit_delay
     { kDontAllowMultipleValues, "24",       NULL                    },  //34 small_window_size
     { kDontAllowMultipleValues, "false",    NULL                    },  //35 ack_logging_enabled
-    { kDontAllowMultipleValues, "./snap/",      NULL                    },  //36 snap_local_path
-    { kDontAllowMultipleValues, "http://cms.easydarwin.org/",      NULL                    },  //37 snap_web_path
+
+
     { kDontAllowMultipleValues, "50",       NULL                    },  //38 send_interval
     { kDontAllowMultipleValues, "-2000",    NULL                    },  //39 thick_all_the_way_delay
     { kDontAllowMultipleValues, "",         NULL                    },  //40 alt_transport_src_ipaddr
@@ -167,9 +167,8 @@ QTSSAttrInfoDict::AttrInfo  QTSServerPrefs::sAttributes[] =
     /* 33 */ { "max_retransmit_delay",                  NULL,                   qtssAttrDataTypeUInt32,     qtssAttrModeRead | qtssAttrModeWrite },
     /* 34 */ { "small_window_size",                     NULL,                   qtssAttrDataTypeUInt32,     qtssAttrModeRead | qtssAttrModeWrite },
     /* 35 */ { "ack_logging_enabled",                   NULL,                   qtssAttrDataTypeBool16,     qtssAttrModeRead | qtssAttrModeWrite },
-    /* 36 */ { "snap_local_path",						NULL,                   qtssAttrDataTypeCharArray,     qtssAttrModeRead | qtssAttrModeWrite },
-    /* 37 */ { "snap_web_path",							NULL,                   qtssAttrDataTypeCharArray,     qtssAttrModeRead | qtssAttrModeWrite },
-    /* 38 */ { "send_interval",                         NULL,                   qtssAttrDataTypeUInt32,     qtssAttrModeRead | qtssAttrModeWrite },
+
+	/* 38 */ { "send_interval",                         NULL,                   qtssAttrDataTypeUInt32,     qtssAttrModeRead | qtssAttrModeWrite },
     /* 39 */ { "thick_all_the_way_delay",               NULL,                   qtssAttrDataTypeSInt32,     qtssAttrModeRead | qtssAttrModeWrite },
     /* 40 */ { "alt_transport_src_ipaddr",              NULL,                   qtssAttrDataTypeCharArray,  qtssAttrModeRead | qtssAttrModeWrite },
     /* 41 */ { "max_send_ahead_time",                   NULL,                   qtssAttrDataTypeUInt32,     qtssAttrModeRead | qtssAttrModeWrite },

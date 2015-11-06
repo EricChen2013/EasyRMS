@@ -177,11 +177,8 @@ class QTSServerPrefs : public QTSSPrefs
 		char* GetCMSIP()			{ return this->GetStringPref(qtssPrefsCMSIPAddr); }
 
 		char* GetRedisIP()			{ return this->GetStringPref(qtssPrefsRedisIPAddr); }
-
-		char* GetSnapLocalPath()	{ return this->GetStringPref(qtssPrefsSnapLocalPath); }
-		char* GetSnapWebPath()		{ return this->GetStringPref(qtssPrefsSnapWebPath); }
        
-        Bool16 GetAllowGuestDefault()               { return fAllowGuestAuthorizeDefault; }
+        Bool16 GetAllowGuestDefault()	{ return fAllowGuestAuthorizeDefault; }
         
     private:
 

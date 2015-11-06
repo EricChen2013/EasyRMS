@@ -543,40 +543,39 @@ enum
     qtssPrefsMaxRetransDelayInMsec          = 33,   //"max_retransmit_delay" // UInt32  //maximum interval between when a retransmit is supposed to be sent and when it actually gets sent. Lower values means smoother flow but slower server performance
     qtssPrefsSmallWindowSizeInK             = 34,   //"small_window_size"  // UInt32    //default size that will be used for low bitrate movies
     qtssPrefsAckLoggingEnabled              = 35,   //"ack_logging_enabled"  // Bool16  //Debugging only: turns on detailed logging of 
-    qtssPrefsSnapLocalPath					= 36,   //"snap_local_path"		// char array   //¿ìÕÕ±¾µØ´æ´¢Â·¾¶
-    qtssPrefsSnapWebPath			        = 37,   //"snap_web_path"		// char array   //¿ìÕÕÍøÂç´æ´¢Â·¾¶
-    qtssPrefsSendInterval                   = 38,   //"send_interval"  // UInt32    //
-    qtssPrefsThickAllTheWayDelayInMsec      = 39,   //"thick_all_the_way_delay"     // UInt32   //
-    qtssPrefsAltTransportIPAddr             = 40,   //"alt_transport_src_ipaddr"// char     //If empty, the server uses its own IP addr in the source= param of the transport header. Otherwise, it uses this addr.
-    qtssPrefsMaxAdvanceSendTimeInSec        = 41,   //"max_send_ahead_time"     // UInt32   //This is the farthest in advance the server will send a packet to a client that supports overbuffering.
+
+	qtssPrefsSendInterval                   = 36,   //"send_interval"  // UInt32    //
+    qtssPrefsThickAllTheWayDelayInMsec      = 37,   //"thick_all_the_way_delay"     // UInt32   //
+    qtssPrefsAltTransportIPAddr             = 38,   //"alt_transport_src_ipaddr"// char     //If empty, the server uses its own IP addr in the source= param of the transport header. Otherwise, it uses this addr.
+    qtssPrefsMaxAdvanceSendTimeInSec        = 39,   //"max_send_ahead_time"     // UInt32   //This is the farthest in advance the server will send a packet to a client that supports overbuffering.
 
 	
-	qtssPrefsAuthenticationScheme           = 42,   //"authentication_scheme" // char   //Set this to be the authentication scheme you want the server to use. "basic", "digest", and "none" are the currently supported values
+	qtssPrefsAuthenticationScheme           = 40,   //"authentication_scheme" // char   //Set this to be the authentication scheme you want the server to use. "basic", "digest", and "none" are the currently supported values
 
-	qtssPrefsAutoStart                      = 43,   //"auto_start" //Bool16 //If true, streaming server likes to be started at system startup
+	qtssPrefsAutoStart                      = 41,   //"auto_start" //Bool16 //If true, streaming server likes to be started at system startup
        
-	qtssPrefsEnableMSGDebugPrintfs         = 44,	//"MSG_debug_printfs" //Boo1l6 // printfs incoming RTSPRequests and Outgoing RTSP responses.
+	qtssPrefsEnableMSGDebugPrintfs         = 42,	//"MSG_debug_printfs" //Boo1l6 // printfs incoming RTSPRequests and Outgoing RTSP responses.
 
-    qtssPrefsEnableMonitorStatsFile         = 45,   //"enable_monitor_stats_file" //Bool16 //write server stats to the monitor file
-    qtssPrefsMonitorStatsFileIntervalSec    = 46,   //"monitor_stats_file_interval_seconds" // private
-    qtssPrefsMonitorStatsFileName           = 47,   //"monitor_stats_file_name" // private
+    qtssPrefsEnableMonitorStatsFile         = 43,   //"enable_monitor_stats_file" //Bool16 //write server stats to the monitor file
+    qtssPrefsMonitorStatsFileIntervalSec    = 44,   //"monitor_stats_file_interval_seconds" // private
+    qtssPrefsMonitorStatsFileName           = 45,   //"monitor_stats_file_name" // private
 
-	qtssPrefsOverbufferRate                 = 48,    //"overbuffer_rate"    //Float32
-    qtssPrefsMediumWindowSizeInK            = 49,    //"medium_window_size" // UInt32    //default size that will be used for medium bitrate movies
-    qtssPrefsWindowSizeMaxThreshold         = 50,    //"window_size_threshold"  // UInt32    //bitrate at which we switch from medium to large window size
-    qtssPrefsEnableCMSServerInfo			= 51,   //"CMS_server_info" //Boo1l6 // Adds server info to the RTSP responses.
-    qtssPrefsRunNumThreads                  = 52,   //"run_num_threads" //UInt32 // if value is non-zero, will  create that many task threads; otherwise a thread will be created for each processor
-    qtssPrefsPidFile                        = 53,    //"pid_file" //Char Array //path to pid file
-    qtssPrefsCloseLogsOnWrite               = 54,   // "force_logs_close_on_write" //Bool16 // force log files to close after each write.
+	qtssPrefsOverbufferRate                 = 46,    //"overbuffer_rate"    //Float32
+    qtssPrefsMediumWindowSizeInK            = 47,    //"medium_window_size" // UInt32    //default size that will be used for medium bitrate movies
+    qtssPrefsWindowSizeMaxThreshold         = 48,    //"window_size_threshold"  // UInt32    //bitrate at which we switch from medium to large window size
+    qtssPrefsEnableCMSServerInfo			= 49,   //"CMS_server_info" //Boo1l6 // Adds server info to the RTSP responses.
+    qtssPrefsRunNumThreads                  = 50,   //"run_num_threads" //UInt32 // if value is non-zero, will  create that many task threads; otherwise a thread will be created for each processor
+    qtssPrefsPidFile                        = 51,    //"pid_file" //Char Array //path to pid file
+    qtssPrefsCloseLogsOnWrite               = 52,   // "force_logs_close_on_write" //Bool16 // force log files to close after each write.
 
-	qtssPrefsMonitorLANPort					= 55,   // "monitor_lan_port" //UInt16 // localhost destination port of reflected stream
-    qtssPrefsMonitorWANPort					= 56,   // "monitor_wan_port" //UInt16 // localhost destination port of reflected stream
-    qtssPrefsMonitorLANIPAddr				= 57,   // "monitor_lan_ip"    //char array    //IP address the server should send RTP monitor reflected streams. 
-    qtssPrefsMonitorWANIPAddr				= 58,   // "monitor_wan_ip"    //char array    //client IP address the server monitor should reflect. *.*.*.* means all client addresses.
-    qtssPrefsEnableAllowGuestDefault        = 59,   // "enable_allow_guest_authorize_default" //Boo1l6 // server hint to access modules to allow guest access as the default (can be overriden in a qtaccess file or other means)
-    qtssPrefsNumMsgThreads					= 60,   // "run_num_msg_threads" //UInt32 // if value is non-zero, the server will  create that many task threads; otherwise a single thread will be created.
+	qtssPrefsMonitorLANPort					= 53,   // "monitor_lan_port" //UInt16 // localhost destination port of reflected stream
+    qtssPrefsMonitorWANPort					= 54,   // "monitor_wan_port" //UInt16 // localhost destination port of reflected stream
+    qtssPrefsMonitorLANIPAddr				= 55,   // "monitor_lan_ip"    //char array    //IP address the server should send RTP monitor reflected streams. 
+    qtssPrefsMonitorWANIPAddr				= 56,   // "monitor_wan_ip"    //char array    //client IP address the server monitor should reflect. *.*.*.* means all client addresses.
+    qtssPrefsEnableAllowGuestDefault        = 57,   // "enable_allow_guest_authorize_default" //Boo1l6 // server hint to access modules to allow guest access as the default (can be overriden in a qtaccess file or other means)
+    qtssPrefsNumMsgThreads					= 58,   // "run_num_msg_threads" //UInt32 // if value is non-zero, the server will  create that many task threads; otherwise a single thread will be created.
 
-    qtssPrefsNumParams                      = 61
+    qtssPrefsNumParams                      = 59
 };
 
 typedef UInt32 QTSS_PrefsAttributes;
