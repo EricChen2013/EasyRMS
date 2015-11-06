@@ -74,7 +74,7 @@ void EasyRecordSession::Initialize(QTSS_ModulePrefsObject inPrefs)
 	delete [] sLocalRecordPath;
 	sLocalRecordPath = QTSSModuleUtils::GetStringAttribute(inPrefs, "local_record_path", sDefaultLocalRecordPath);
 
-	QTSSModuleUtils::GetAttribute(inPrefs, "reord_to_where", qtssAttrDataTypeUInt32,
+	QTSSModuleUtils::GetAttribute(inPrefs, "record_to_where", qtssAttrDataTypeUInt32,
 							  &EasyRecordSession::sRecordToWhere, &sDefaultRecordToWhere, sizeof(sDefaultRecordToWhere));
 	
 	delete [] sOSSBucketName;
