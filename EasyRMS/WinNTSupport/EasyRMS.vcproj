@@ -416,10 +416,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\Server.tproj\RTSPProtocol.cpp"
-					>
-				</File>
-				<File
 					RelativePath="..\Server.tproj\RunServer.cpp"
 					>
 				</File>
