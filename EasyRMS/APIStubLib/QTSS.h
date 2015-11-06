@@ -544,17 +544,9 @@ enum
     qtssPrefsSmallWindowSizeInK             = 34,   //"small_window_size"  // UInt32    //default size that will be used for low bitrate movies
     qtssPrefsAckLoggingEnabled              = 35,   //"ack_logging_enabled"  // Bool16  //Debugging only: turns on detailed logging of 
 
-	qtssPrefsSendInterval                   = 36,   //"send_interval"  // UInt32    //
-    qtssPrefsThickAllTheWayDelayInMsec      = 37,   //"thick_all_the_way_delay"     // UInt32   //
-    qtssPrefsAltTransportIPAddr             = 38,   //"alt_transport_src_ipaddr"// char     //If empty, the server uses its own IP addr in the source= param of the transport header. Otherwise, it uses this addr.
-    qtssPrefsMaxAdvanceSendTimeInSec        = 39,   //"max_send_ahead_time"     // UInt32   //This is the farthest in advance the server will send a packet to a client that supports overbuffering.
-
-	
-	qtssPrefsAuthenticationScheme           = 40,   //"authentication_scheme" // char   //Set this to be the authentication scheme you want the server to use. "basic", "digest", and "none" are the currently supported values
-
 	qtssPrefsAutoStart                      = 41,   //"auto_start" //Bool16 //If true, streaming server likes to be started at system startup
        
-	qtssPrefsEnableMSGDebugPrintfs         = 42,	//"MSG_debug_printfs" //Boo1l6 // printfs incoming RTSPRequests and Outgoing RTSP responses.
+	qtssPrefsEnableMSGDebugPrintfs			= 42,	//"MSG_debug_printfs" //Boo1l6 // printfs incoming RTSPRequests and Outgoing RTSP responses.
 
     qtssPrefsEnableMonitorStatsFile         = 43,   //"enable_monitor_stats_file" //Bool16 //write server stats to the monitor file
     qtssPrefsMonitorStatsFileIntervalSec    = 44,   //"monitor_stats_file_interval_seconds" // private

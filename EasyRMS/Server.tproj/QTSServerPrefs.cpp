@@ -225,11 +225,6 @@ QTSServerPrefs::QTSServerPrefs(XMLPrefsParser* inPrefsSource, Bool16 inWriteMiss
     fLargeWindowSizeInK(0),
     fWindowSizeThreshold(0),
 	fWindowSizeMaxThreshold(0),
-    fMaxRetransDelayInMsec(0),
-    fIsAckLoggingEnabled(false),
-    fSendIntervalInMsec(0),
-    fMaxSendAheadTimeInSecs(0),
-    fAuthScheme(qtssAuthDigest),
     fAutoStart(false),
     fEnableMSGDebugPrintfs(false),
     fEnableCMSServerInfo(true),
@@ -292,10 +287,6 @@ void QTSServerPrefs::SetupAttributes()
     this->SetVal(qtssPrefsWindowSizeThreshold,  &fWindowSizeThreshold,      sizeof(fWindowSizeThreshold));
 	this->SetVal(qtssPrefsWindowSizeMaxThreshold,	&fWindowSizeMaxThreshold,   sizeof(fWindowSizeMaxThreshold));
 
-    this->SetVal(qtssPrefsMaxRetransDelayInMsec,    &fMaxRetransDelayInMsec,    sizeof(fMaxRetransDelayInMsec));
-    this->SetVal(qtssPrefsAckLoggingEnabled,        &fIsAckLoggingEnabled,      sizeof(fIsAckLoggingEnabled));
-    this->SetVal(qtssPrefsSendInterval,             &fSendIntervalInMsec,       sizeof(fSendIntervalInMsec));
-    this->SetVal(qtssPrefsMaxAdvanceSendTimeInSec,  &fMaxSendAheadTimeInSecs,   sizeof(fMaxSendAheadTimeInSecs));
     this->SetVal(qtssPrefsAutoStart,                &fAutoStart,                sizeof(fAutoStart));
 
     this->SetVal(qtssPrefsEnableMSGDebugPrintfs,		&fEnableMSGDebugPrintfs,		sizeof(fEnableMSGDebugPrintfs));
@@ -437,69 +428,10 @@ void QTSServerPrefs::RereadServerPreferences(Bool16 inWriteMissingPrefs)
         this->SetPrefValuesFromFileWithRef(pref, x, theNumValues);
     }
     
-    //
-    // Do any special pref post-processing
-    this->UpdateAuthScheme();
-    
     QTSSRollingLog::SetCloseOnWrite(fCloseLogsOnWrite);
     //
     // In case we made any changes, write out the prefs file
     (void)fPrefsSource->WritePrefsFile();
-}
-
-void    QTSServerPrefs::UpdateAuthScheme()
-{
-    static StrPtrLen sNoAuthScheme("none");
-    static StrPtrLen sBasicAuthScheme("basic");
-    static StrPtrLen sDigestAuthScheme("digest");
-    
-    // Get the auth scheme attribute
-    StrPtrLen* theAuthScheme = this->GetValue(qtssPrefsAuthenticationScheme);
-    
-    if (theAuthScheme->Equal(sNoAuthScheme))
-        fAuthScheme = qtssAuthNone;
-    else if (theAuthScheme->Equal(sBasicAuthScheme))
-        fAuthScheme = qtssAuthBasic;
-    else if (theAuthScheme->Equal(sDigestAuthScheme))
-        fAuthScheme = qtssAuthDigest;
-}
-
-//char*   QTSServerPrefs::GetMovieFolder(char* inBuffer, UInt32* ioLen)
-//{
-//    OSMutexLocker locker(&fPrefsMutex);
-//
-//    // Get the movie folder attribute
-//    StrPtrLen* theMovieFolder = this->GetValue(qtssPrefsCMSIPAddr);
-//
-//    // If the movie folder path fits inside the provided buffer, copy it there
-//    if (theMovieFolder->Len < *ioLen)
-//        ::memcpy(inBuffer, theMovieFolder->Ptr, theMovieFolder->Len);
-//    else
-//    {
-//        // Otherwise, allocate a buffer to store the path
-//        inBuffer = NEW char[theMovieFolder->Len + 2];
-//        ::memcpy(inBuffer, theMovieFolder->Ptr, theMovieFolder->Len);
-//    }
-//    inBuffer[theMovieFolder->Len] = 0;
-//    *ioLen = theMovieFolder->Len;
-//    return inBuffer;
-//}
-
-void QTSServerPrefs::GetTransportSrcAddr(StrPtrLen* ioBuf)
-{
-    OSMutexLocker locker(&fPrefsMutex);
-
-    // Get the movie folder attribute
-    StrPtrLen* theTransportAddr = this->GetValue(qtssPrefsAltTransportIPAddr);
-
-    // If the movie folder path fits inside the provided buffer, copy it there
-    if ((theTransportAddr->Len > 0) && (theTransportAddr->Len < ioBuf->Len))
-    {
-        ::memcpy(ioBuf->Ptr, theTransportAddr->Ptr, theTransportAddr->Len);
-        ioBuf->Len = theTransportAddr->Len;
-    }
-    else
-        ioBuf->Len = 0;
 }
 
 char* QTSServerPrefs::GetStringPref(QTSS_AttributeID inAttrID)

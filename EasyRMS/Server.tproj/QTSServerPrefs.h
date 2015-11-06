@@ -103,12 +103,7 @@ class QTSServerPrefs : public QTSSPrefs
         void    SetErrorLogVerbosity(UInt32 verbosity)        { fErrorLogVerbosity = verbosity; }
         Bool16  GetAppendSrcAddrInTransport()   { return fAppendSrcAddrInTransport; }
         
-        //
-        UInt32  GetMaxRetransmitDelayInMsec()   { return fMaxRetransDelayInMsec; }
-        Bool16  IsAckLoggingEnabled()           { return fIsAckLoggingEnabled; }
-        UInt32  GetSendIntervalInMsec()         { return fSendIntervalInMsec; }
-        UInt32  GetMaxSendAheadTimeInSecs()     { return fMaxSendAheadTimeInSecs; }
-        Bool16  GetMSGDebugPrintfs()           { return fEnableMSGDebugPrintfs; }
+		Bool16  GetMSGDebugPrintfs()           { return fEnableMSGDebugPrintfs; }
         Bool16  GetCMSServerInfoEnabled()      { return fEnableCMSServerInfo; }
         
         Float32    GetOverbufferRate()                { return fOverbufferRate; }
@@ -129,13 +124,6 @@ class QTSServerPrefs : public QTSSPrefs
         // the path is copied into that buffer. Otherwise, a new buffer is allocated
         // and returned.
         //char*   GetMovieFolder(char* inBuffer, UInt32* ioLen);
-        
-        //
-        // Transport addr pref. Caller must provide a buffer big enough for an IP addr
-        void    GetTransportSrcAddr(StrPtrLen* ioBuf);
-                
-        // String preferences. Note that the pointers returned here is allocated
-        // memory that you must delete!
         
         char*   GetErrorLogDir()
             { return this->GetStringPref(qtssPrefsErrorLogDir); }
@@ -161,7 +149,6 @@ class QTSServerPrefs : public QTSSPrefs
 
         Bool16 ServerStatFileEnabled()      { return fEnableMonitorStatsFile; }
         UInt32 GetStatFileIntervalSec()     { return fStatsFileIntervalSeconds; }
-        QTSS_AuthScheme GetAuthScheme()     { return fAuthScheme; }
                  
         UInt32  GetNumThreads()                   { return fNumThreads; } //short tasks threads
         UInt32  GetNumBlockingThreads()           { return fNumMsgThreads; } //return the number of threads that long tasks will be scheduled on -- RTSP processing for example.
@@ -216,11 +203,6 @@ class QTSServerPrefs : public QTSSPrefs
         UInt32  fWindowSizeThreshold;
         UInt32  fWindowSizeMaxThreshold;
 
-        UInt32  fMaxRetransDelayInMsec;
-        Bool16  fIsAckLoggingEnabled;
-        UInt32  fSendIntervalInMsec;
-        UInt32  fMaxSendAheadTimeInSecs;
-        QTSS_AuthScheme fAuthScheme;
         Bool16  fAutoStart;
         Bool16  fEnableMSGDebugPrintfs;
         Bool16  fEnableCMSServerInfo;
@@ -258,7 +240,6 @@ class QTSServerPrefs : public QTSSPrefs
         };
             
         void SetupAttributes();
-        void UpdateAuthScheme();
         //
         // Returns the string preference with the specified ID. If there
         // was any problem, this will return an empty string.
