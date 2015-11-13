@@ -105,6 +105,7 @@ class EasyRecordSession : public Task
 		UInt32			fLastStatBitrate;		//最后一次统计得到的比特率
 
 		UInt64			fLastRecordTime;		//上次启动新录像的时间
+		OSMutex         fRecordMutex;
 
 	protected:
 		TimeoutTask		fTimeoutTask;

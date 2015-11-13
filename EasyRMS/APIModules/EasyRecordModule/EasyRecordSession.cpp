@@ -292,13 +292,13 @@ QTSS_Error	EasyRecordSession::HLSSessionStart(char* rtspUrl, UInt32 inTimeout)
 		if(NULL == fRecordHandle)
 		{
 			//´´½¨HLSSessioin Sink
-			fRecordHandle = EasyRecord_Session_Create(sAllowCache, sM3U8Version);
+			/*fRecordHandle = EasyRecord_Session_Create(sAllowCache, sM3U8Version);
 
 			if (NULL == fRecordHandle)
 			{
 				theErr = QTSS_Unimplemented;
 				break;
-			}
+			}*/
 			fLastRecordTime = 0;
 			TryCreateNewRecord();
 			//char subDir[QTSS_MAX_URL_LENGTH] = { 0 };
@@ -377,7 +377,9 @@ const char*	EasyRecordSession::TimeToString(UInt64 inTime)
 }
 
 bool EasyRecordSession::TryCreateNewRecord()
-{
+{	
+	OSMutexLocker recordMutexLocker(&fRecordMutex);
+	
 	if(fLastRecordTime != 0)
 	{
 		UInt64 now = time(NULL);		
@@ -386,7 +388,19 @@ bool EasyRecordSession::TryCreateNewRecord()
 			return false;
 		}
 	}
-	
+
+	if(fRecordHandle != NULL)	
+	{
+		EasyRecord_Session_Release(fRecordHandle);		
+	}
+
+	fRecordHandle = EasyRecord_Session_Create(sAllowCache, sM3U8Version);
+
+	if (NULL == fRecordHandle)
+	{
+		return false;
+	}
+		
 	char rootDir[QTSS_MAX_URL_LENGTH] = { 0 };
 	char subDir[QTSS_MAX_URL_LENGTH] = { 0 };
 	
