@@ -257,6 +257,7 @@ SInt32 QTSSModule::GetPrivateRoleIndex(QTSS_Role apiRole)
         case QTSS_Interval_Role:            return kTimedIntervalRole       ;
 		case Easy_RecordOpen_Role:			return kRecordOpenRole			;
 		case Easy_RecordClose_Role:			return kRecordCloseRole			;
+		case Easy_RecordList_Role:			return kRecordListRole			;
         default:
             return -1;
     }

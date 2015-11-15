@@ -59,6 +59,21 @@ class EasyRecordSession : public Task
 		const char*		TimeToString(UInt64 inTime);//return string with formatYYYYMMDDhhmmss
 		bool			TryCreateNewRecord();
    
+public:
+		static UInt32	sM3U8Version;
+		static Bool16	sAllowCache;
+		static UInt32	sTargetDuration;
+		static UInt32	sPlaylistCapacity;
+		static char*	sHTTPRootDir;
+		static char*	sOSSBucketName;
+		static char*	sOSSEndpoint;
+		static UInt32	sOSSPort;
+		static char*	sOSSAccessKeyID;
+		static char*	sOSSAccessKeySecret;
+		static UInt32	sRecordDuration;
+		static char*	sLocalRecordPath;
+		static UInt32	sRecordToWhere;	//0-OSS 1-local
+
     private:
 
         //HLSSession列表由EasyRecordModule的sHLSSessionMap维护  
@@ -76,20 +91,7 @@ class EasyRecordSession : public Task
 		//TS timestamp ms，自定义时间戳
 		int tsTimeStampMSsec;
 
-		static UInt32	sM3U8Version;
-		static Bool16	sAllowCache;
-		static UInt32	sTargetDuration;
-		static UInt32	sPlaylistCapacity;
-		static char*	sHTTPRootDir;
-		static char*	sOSSBucketName;
-		static char*	sOSSEndpoint;
-		static UInt32	sOSSPort;
-		static char*	sOSSAccessKeyID;
-		static char*	sOSSAccessKeySecret;
-		static UInt32	sRecordDuration;
-		static char*	sLocalRecordPath;
-		static UInt32	sRecordToWhere;	//0-OSS 1-local
-
+		
 		//统计
 		SInt64          fPlayTime;				//起始的时间
 		SInt64			fLastStatPlayTime;		//上一次统计的时间

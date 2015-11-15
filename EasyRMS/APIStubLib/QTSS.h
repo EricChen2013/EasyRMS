@@ -762,6 +762,7 @@ enum
 	//Record Session
 	Easy_RecordOpen_Role	=	FOUR_CHARS_TO_INT('r', 'l', 's', 'o'),  //hlso
 	Easy_RecordClose_Role	=	FOUR_CHARS_TO_INT('r', 'l', 's', 'c'),  //hlsc
+	Easy_RecordList_Role	=	FOUR_CHARS_TO_INT('l', 'i', 's', 't')	//list
     
 };
 typedef UInt32 QTSS_Role;
@@ -937,6 +938,14 @@ typedef struct
 	UInt32						inTimeout;	//HLSÊ±¼ä
 } Easy_RecordOpen_Params;
 
+typedef struct 
+{
+	char*						inStreamName;
+	char*						inBeginTime;
+	char*						inEndTime;
+	vector<string>*				outRecords;
+}Easy_RecordList_Params;
+
 typedef struct
 {
     char*                       inStreamName;
@@ -975,6 +984,7 @@ typedef union
 
 	Easy_RecordOpen_Params				easyRecordOpenParams;
 	Easy_RecordClose_Params				easyRecordCloseParams;
+	Easy_RecordList_Params				easyRecordListParams;
     
 } QTSS_RoleParams, *QTSS_RoleParamPtr;
 

@@ -68,6 +68,8 @@ static QTSS_Error EasyHLSOpen(Easy_RecordOpen_Params* inParams);
 static QTSS_Error EasyHLSClose(Easy_RecordClose_Params* inParams);
 static char* GetHLSUrl(char* inSessionName);
 
+static QTSS_Error EasyRecordList(Easy_RecordList_Params* inParams);
+
 // FUNCTION IMPLEMENTATIONS
 QTSS_Error EasyRecordModule_Main(void* inPrivateArgs)
 {
@@ -88,6 +90,9 @@ QTSS_Error  EasyHLSModuleDispatch(QTSS_Role inRole, QTSS_RoleParamPtr inParams)
 			return EasyHLSOpen(&inParams->easyRecordOpenParams);
 		case Easy_RecordClose_Role:	//Stop HLS Streaming
 			return EasyHLSClose(&inParams->easyRecordCloseParams);
+		case Easy_RecordList_Role:	//list record files
+			return EasyRecordList(&inParams->easyRecordListParams);
+
     }
     return QTSS_NoErr;
 }
@@ -99,6 +104,7 @@ QTSS_Error Register(QTSS_Register_Params* inParams)
     (void)QTSS_AddRole(QTSS_RereadPrefs_Role);   
     (void)QTSS_AddRole(Easy_RecordOpen_Role); 
 	(void)QTSS_AddRole(Easy_RecordClose_Role); 
+	(void)QTSS_AddRole(Easy_RecordList_Role);
     
     // Tell the server our name!
     static char* sModuleName = "EasyRecordModule";
@@ -222,4 +228,9 @@ char* GetHLSUrl(char* inSessionName)
 	sHLSSessionMap->Release(session->GetRef());
 
 	return hlsURL;
+}
+
+QTSS_Error EasyRecordList(Easy_RecordList_Params* inParams)
+{
+	return QTSS_NoErr;
 }

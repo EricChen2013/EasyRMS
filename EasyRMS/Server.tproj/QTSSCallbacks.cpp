@@ -770,5 +770,19 @@ QTSS_Error QTSSCallbacks::Easy_StopHLSSession(const char* inSessionName)
 
 QTSS_Error QTSSCallbacks::Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> &outRecordFiles)
 {
+	QTSS_RoleParams packetParams;
+	packetParams.easyRecordListParams.inStreamName = (char*)inSessionName;
+	packetParams.easyRecordListParams.inBeginTime = (char*)inBeginTime;
+	packetParams.easyRecordListParams.inEndTime = (char*)inEndTime;
+	packetParams.easyRecordListParams.outRecords = &outRecordFiles;
+
+	UInt32 fCurrentModule = 0;
+	UInt32 numModules = QTSServerInterface::GetNumModulesInRole(QTSSModule::kRecordListRole);
+	for (; fCurrentModule < numModules; fCurrentModule++)
+	{
+		QTSSModule* theModule = QTSServerInterface::GetModule(QTSSModule::kRecordListRole, fCurrentModule);
+		(void)theModule->CallDispatch(Easy_RecordList_Role, &packetParams);
+		return QTSS_NoErr;
+	}
 	return QTSS_RequestFailed;
 }

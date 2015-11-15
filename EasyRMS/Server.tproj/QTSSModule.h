@@ -151,8 +151,9 @@ class QTSSModule : public QTSSDictionary, public Task
 
 			kRecordOpenRole	=			21,
 			kRecordCloseRole	=		22,
+			kRecordListRole =			23,
             
-            kNumRoles =                 23
+            kNumRoles =                 24
         };
         typedef UInt32 RoleIndex;
         
