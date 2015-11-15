@@ -767,3 +767,8 @@ QTSS_Error QTSSCallbacks::Easy_StopHLSSession(const char* inSessionName)
 	
 	return QTSS_RequestFailed;
 }
+
+QTSS_Error QTSSCallbacks::Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> &outRecordFiles)
+{
+	return QTSS_RequestFailed;
+}

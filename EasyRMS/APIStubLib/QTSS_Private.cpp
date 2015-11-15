@@ -43,6 +43,8 @@
 
 #include "QTSS.h"
 #include "QTSS_Private.h"
+#include <vector>
+using namespace std;
 
 static QTSS_CallbacksPtr    sCallbacks = NULL;
 static QTSS_StreamRef       sErrorLogStream = NULL;
@@ -392,4 +394,9 @@ QTSS_Error	Easy_StartHLSSession(const char* inSessionName, const char* inURL, UI
 QTSS_Error	Easy_StopHLSSession(const char* inSessionName)
 {
 	return (sCallbacks->addr [kStopHLSSessionCallback]) (inSessionName);
+}
+
+QTSS_Error	Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> &outRecordFiles)
+{
+	return (sCallbacks->addr [kListRecordFilesCallback]) (inSessionName, inBeginTime, inEndTime, outRecordFiles);
 }

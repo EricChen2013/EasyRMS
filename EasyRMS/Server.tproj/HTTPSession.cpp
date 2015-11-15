@@ -45,6 +45,9 @@ static StrPtrLen	sGetHLSSessions("api/getrecordsessions");
 #define QUERY_STREAM_TIMEOUT	"timeout"
 #define QUERY_STREAM_CMD_START	"start"
 #define QUERY_STREAM_CMD_STOP	"stop"
+#define QUERY_STREAM_CMD_LIST	"list"
+#define QUERY_STREAM_BEGIN		"begin"	//20151115103000
+#define QUERY_STREAM_END		"end"	//20151115120000
 
 
 //Ω‚url±‡¬Î µœ÷ 
@@ -619,12 +622,22 @@ QTSS_Error HTTPSession::ExecNetMsgEasyHLSModuleReq(char* queryString, char* json
 		const char* sURL = parList.DoFindCGIValueForParam(QUERY_STREAM_URL);
 		const char* sCMD = parList.DoFindCGIValueForParam(QUERY_STREAM_CMD);
 		const char* sTIMEOUT = parList.DoFindCGIValueForParam(QUERY_STREAM_TIMEOUT);
+		const char* sLIST = parList.DoFindCGIValueForParam(QUERY_STREAM_CMD_LIST);
+		const char* sBEGIN = parList.DoFindCGIValueForParam(QUERY_STREAM_BEGIN);
+		const char* sEND = parList.DoFindCGIValueForParam(QUERY_STREAM_END);
+
 		int iTIMEOUT = 0;
 
 		if(sCMD)
 		{
 			if(::strcmp(sCMD,QUERY_STREAM_CMD_STOP) == 0)
 				bStop = true;
+
+			if(::strcmp(sCMD,QUERY_STREAM_CMD_LIST) == 0)
+			{
+				vector<string> records;
+				theErr = Easy_ListRecordFiles(sName, sBEGIN, sEND, records);
+			}
 		}
 
 		if(bStop)

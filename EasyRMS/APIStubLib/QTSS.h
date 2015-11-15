@@ -33,6 +33,8 @@
 #define QTSS_H
 #include "OSHeaders.h"
 #include "QTSSRTSPProtocol.h"
+#include <vector>
+using namespace std;
 
 #ifdef __cplusplus
 extern "C" {
@@ -1683,6 +1685,8 @@ QTSS_Error	QTSS_SendHTTPPacket(QTSS_RTSPSessionObject inServiceSession, char* in
 QTSS_Error	Easy_StartHLSSession(const char* inSessionName, const char* inURL, UInt32 inTimeout, char* outURL);
 // Stop HLS Session
 QTSS_Error	Easy_StopHLSSession(const char* inSessionName);
+
+QTSS_Error	Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> &outRecordFiles);
 
 #ifdef QTSS_OLDROUTINENAMES
 

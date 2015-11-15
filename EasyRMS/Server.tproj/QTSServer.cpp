@@ -675,6 +675,7 @@ void    QTSServer::InitCallbacks()
 	sCallbacks.addr[kSendHTTPPacketCallback] =				(QTSS_CallbackProcPtr)QTSSCallbacks::QTSS_SendHTTPPacket;
 	sCallbacks.addr[kStartHLSSessionCallback] =				(QTSS_CallbackProcPtr)QTSSCallbacks::Easy_StartHLSSession;
 	sCallbacks.addr[kStopHLSSessionCallback] =				(QTSS_CallbackProcPtr)QTSSCallbacks::Easy_StopHLSSession;
+	sCallbacks.addr[kListRecordFilesCallback] =				(QTSS_CallbackProcPtr)QTSSCallbacks::Easy_ListRecordFiles;	
 }
 
 void QTSServer::LoadModules(QTSServerPrefs* inPrefs)

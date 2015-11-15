@@ -39,6 +39,8 @@
 #define __QTSSCALLBACKS_H__
 
 #include "QTSS.h"
+#include <vector>
+using namespace std;
 
 class QTSSCallbacks
 {
@@ -160,6 +162,8 @@ class QTSSCallbacks
 		static QTSS_Error	Easy_StartHLSSession(const char* inSessionName, const char* inURL, UInt32 inTimeout, char* outURL);
 		// Stop HLS Session
 		static QTSS_Error	Easy_StopHLSSession(const char* inSessionName);
+		// List Record Files
+		static QTSS_Error	Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> &outRecordFiles);
 };
 
 #endif //__QTSSCALLBACKS_H__
