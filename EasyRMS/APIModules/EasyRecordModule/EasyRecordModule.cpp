@@ -25,6 +25,7 @@
 #include "EasyRecordSession.h"
 
 #include "QTSServerInterface.h"
+#include "EasyRecordQuery.h"
 
 class RecordSessionCheckingTask : public Task
 {
@@ -232,5 +233,7 @@ char* GetHLSUrl(char* inSessionName)
 
 QTSS_Error EasyRecordList(Easy_RecordList_Params* inParams)
 {
+	EasyRecordQuery query(EasyRecordSession::sLocalRecordPath, inParams->inStreamName);
+	query.List(inParams->inBeginTime, inParams->inEndTime, inParams->outRecords);
 	return QTSS_NoErr;
 }

@@ -331,6 +331,14 @@
 						>
 					</File>
 					<File
+						RelativePath="..\APIModules\EasyRecordModule\EasyRecordQuery.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\APIModules\EasyRecordModule\EasyRecordQuery.h"
+						>
+					</File>
+					<File
 						RelativePath="..\APIModules\EasyRecordModule\EasyRecordSession.cpp"
 						>
 					</File>

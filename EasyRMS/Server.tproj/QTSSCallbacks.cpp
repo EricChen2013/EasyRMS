@@ -768,13 +768,13 @@ QTSS_Error QTSSCallbacks::Easy_StopHLSSession(const char* inSessionName)
 	return QTSS_RequestFailed;
 }
 
-QTSS_Error QTSSCallbacks::Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> &outRecordFiles)
+QTSS_Error QTSSCallbacks::Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> *outRecordFiles)
 {
 	QTSS_RoleParams packetParams;
 	packetParams.easyRecordListParams.inStreamName = (char*)inSessionName;
 	packetParams.easyRecordListParams.inBeginTime = (char*)inBeginTime;
 	packetParams.easyRecordListParams.inEndTime = (char*)inEndTime;
-	packetParams.easyRecordListParams.outRecords = &outRecordFiles;
+	packetParams.easyRecordListParams.outRecords = outRecordFiles;
 
 	UInt32 fCurrentModule = 0;
 	UInt32 numModules = QTSServerInterface::GetNumModulesInRole(QTSSModule::kRecordListRole);

@@ -396,7 +396,7 @@ QTSS_Error	Easy_StopHLSSession(const char* inSessionName)
 	return (sCallbacks->addr [kStopHLSSessionCallback]) (inSessionName);
 }
 
-QTSS_Error	Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> &outRecordFiles)
+QTSS_Error	Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> *outRecordFiles)
 {
 	return (sCallbacks->addr [kListRecordFilesCallback]) (inSessionName, inBeginTime, inEndTime, outRecordFiles);
 }

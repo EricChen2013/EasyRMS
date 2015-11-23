@@ -163,7 +163,7 @@ class QTSSCallbacks
 		// Stop HLS Session
 		static QTSS_Error	Easy_StopHLSSession(const char* inSessionName);
 		// List Record Files
-		static QTSS_Error	Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> &outRecordFiles);
+		static QTSS_Error	Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> *outRecordFiles);
 };
 
 #endif //__QTSSCALLBACKS_H__

@@ -635,8 +635,9 @@ QTSS_Error HTTPSession::ExecNetMsgEasyHLSModuleReq(char* queryString, char* json
 
 			if(::strcmp(sCMD,QUERY_STREAM_CMD_LIST) == 0)
 			{
-				vector<string> records;
+				vector<string> *records = new vector<string>;
 				theErr = Easy_ListRecordFiles(sName, sBEGIN, sEND, records);
+				delete records;
 			}
 		}
 

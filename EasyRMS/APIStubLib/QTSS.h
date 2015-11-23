@@ -1696,7 +1696,7 @@ QTSS_Error	Easy_StartHLSSession(const char* inSessionName, const char* inURL, UI
 // Stop HLS Session
 QTSS_Error	Easy_StopHLSSession(const char* inSessionName);
 
-QTSS_Error	Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> &outRecordFiles);
+QTSS_Error	Easy_ListRecordFiles(const char* inSessionName, const char* inBeginTime, const char* inEndTime, vector<string> *outRecordFiles);
 
 #ifdef QTSS_OLDROUTINENAMES
 
