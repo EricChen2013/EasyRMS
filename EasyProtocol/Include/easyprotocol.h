@@ -125,5 +125,20 @@ private:
 };
 
 
+class EASYDARWIN_API EasyDarwinRecordListAck : public EasyProtocol
+{
+public:
+	EasyDarwinRecordListAck();
+	EasyDarwinRecordListAck(const char* msg);
+	virtual ~EasyDarwinRecordListAck(){}
+
+public:
+	bool AddRecord(std::string record);
+
+private:
+	std::list<std::string> records;
+};
+
+
 }}//namespace
 #endif

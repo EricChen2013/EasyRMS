@@ -596,10 +596,11 @@ QTSS_Error HTTPSession::ExecNetMsgEasyHLSModuleReq(char* queryString, char* json
 {	
 	QTSS_Error theErr = QTSS_NoErr;
 	bool bStop = false;  
-
+	bool bList = false;
+	string msg;
 	char decQueryString[QTSS_MAX_URL_LENGTH] = { 0 };
 	urldecode((unsigned char*)queryString, (unsigned char*)decQueryString);
-
+	
 	char* hlsURL = NEW char[QTSS_MAX_URL_LENGTH];
 	hlsURL[0] = '\0';
     QTSSCharArrayDeleter theHLSURLDeleter(hlsURL);
@@ -635,8 +636,16 @@ QTSS_Error HTTPSession::ExecNetMsgEasyHLSModuleReq(char* queryString, char* json
 
 			if(::strcmp(sCMD,QUERY_STREAM_CMD_LIST) == 0)
 			{
+				bList = true;
 				vector<string> *records = new vector<string>;
 				theErr = Easy_ListRecordFiles(sName, sBEGIN, sEND, records);
+				EasyDarwinRecordListAck ack;
+				ack.SetHeaderValue(EASYDARWIN_TAG_VERSION, "1.0");
+				for(vector<string>::iterator it = records->begin(); it != records->end(); it++)
+				{
+					ack.AddRecord(*it);
+				}
+				msg = ack.GetMsg();
 				delete records;
 			}
 		}
@@ -669,12 +678,15 @@ QTSS_Error HTTPSession::ExecNetMsgEasyHLSModuleReq(char* queryString, char* json
 	}while(0);
 
 	//构造MSG_CLI_SMS_HLS_ACK响应报文
-	EasyDarwinEasyHLSAck ack;
-	ack.SetHeaderValue(EASYDARWIN_TAG_VERSION, "1.0");
-	if(strlen(hlsURL))
-		ack.SetStreamURL(hlsURL);
+	if(!bList)
+	{
+		EasyDarwinEasyHLSAck ack;
+		ack.SetHeaderValue(EASYDARWIN_TAG_VERSION, "1.0");
+		if(strlen(hlsURL))
+			ack.SetStreamURL(hlsURL);
 
-	string msg = ack.GetMsg();
+		msg = ack.GetMsg();
+	}
 	StrPtrLen msgJson((char*)msg.c_str());
 
 	//构造响应报文(HTTP头)

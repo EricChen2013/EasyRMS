@@ -177,5 +177,25 @@ bool EasyDarwinHLSessionListAck::AddSession(EasyDarwinHLSession &session)
 	return true;
 }
 
+EasyDarwinRecordListAck::EasyDarwinRecordListAck()
+: EasyProtocol(MSG_CLI_RMS_RECORD_LIST_ACK)
+{
+}
+
+EasyDarwinRecordListAck::EasyDarwinRecordListAck(const char *msg)
+: EasyProtocol(msg, MSG_CLI_RMS_RECORD_LIST_ACK)
+{
+}
+
+bool EasyDarwinRecordListAck::AddRecord(std::string record)
+{
+	Json::Value value;	
+	value["url"] = record;	
+	int pos = record.find_last_of('/');	
+	value["time"] = record.substr(pos - 14, 14); // /20151123114500/*.m3u8
+	root[EASYDARWIN_TAG_ROOT][EASYDARWIN_TAG_BODY]["Records"].append(value);
+	return true;
+}
+
 }}//namespace
 

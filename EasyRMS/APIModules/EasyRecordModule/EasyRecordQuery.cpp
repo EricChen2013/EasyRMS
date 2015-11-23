@@ -3,6 +3,7 @@
 #include <boost/filesystem.hpp>
 #include <iostream>
 #include "EasyRecordSession.h"
+#include <boost/algorithm/string.hpp>
 
 EasyRecordQuery::EasyRecordQuery(const char* path, const char* name)
 : path_(path)
@@ -94,7 +95,12 @@ void EasyRecordQuery::GetM3U8(const char* begin, const char* end, vector<string>
 						cout << "skip m3u8 file: " << m3u8_file.data() << " condition[" << begin << " - " << end << "]" << endl;
 						continue;
 					}
-					records->push_back(m3u8_file.data());                          
+					
+					string url = string(EasyRecordSession::sHTTPRootDir) + m3u8_file.to_string();
+
+					url = boost::algorithm::replace_all_copy(url, "\\", "/");
+
+					records->push_back(url);                          
                 }
             }
         }
