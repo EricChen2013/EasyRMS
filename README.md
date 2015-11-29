@@ -50,8 +50,17 @@ recordName一般为媒体流的ID(或设备ID),例如EasyRMS服务器IP地址是
 	http://[ip]:[service_port]/api/easyrecordmodule?name=[recordName]&cmd=stop
 
 例如停止上面启动的录像：
+
 *http://8.8.8.8:8080/api/easyrecordmodule?name=1234567890&cmd=stop*
 
+### 
+- 检索录像
+
+	http://[ip]:[service_port]/api/easyrecordmodule?name=[recordName]&cmd=list&begin=[beginTime]&end=[endTime]
+	
+其中begin为查询开始时间格式为YYYYMMDDhhmmss，end为结束时间，格式同开始时间，例如查询2015年11月1日至2015年11月3日15时30分45秒的录像：
+
+*http://8.8.8.8:8080/api/easyrecordmodule?name=1234567890&cmd=list&begin=20151101000000&end=20151103153045*
 
 ## 正在开发 ##
 
