@@ -69,7 +69,7 @@
 		<PREF NAME="PLAYLIST_CAPACITY" TYPE="UInt32" >10</PREF>
 		<PREF NAME="record_duration" TYPE="UInt32" >2</PREF>
 		<PREF NAME="local_record_path" >Record</PREF>
-		<PREF NAME="record_to_where" TYPE="UInt32" >1</PREF>
+		<PREF NAME="record_to_where" TYPE="UInt32" >0</PREF>
 		<PREF NAME="oss_bucket_name" >easydarwin-easyrms-bucket</PREF>
 		<PREF NAME="oss_endpoint" >oss-cn-hangzhou.aliyuncs.com</PREF>
 		<PREF NAME="oss_port" TYPE="UInt32" >80</PREF>

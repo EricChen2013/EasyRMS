@@ -21,6 +21,7 @@
 #include "EasyProtocol.h"
 
 #include "EasyRecordSession.h"
+#include <libEasyOSS.h>
 
 using namespace EasyDarwin::Protocol;
 using namespace std;
@@ -637,16 +638,39 @@ QTSS_Error HTTPSession::ExecNetMsgEasyHLSModuleReq(char* queryString, char* json
 			if(::strcmp(sCMD,QUERY_STREAM_CMD_LIST) == 0)
 			{
 				bList = true;
-				vector<string> *records = new vector<string>;
-				theErr = Easy_ListRecordFiles(sName, sBEGIN, sEND, records);
 				EasyDarwinRecordListAck ack;
 				ack.SetHeaderValue(EASYDARWIN_TAG_VERSION, "1.0");
-				for(vector<string>::iterator it = records->begin(); it != records->end(); it++)
+				if(EasyRecordSession::sRecordToWhere == 0)
 				{
-					ack.AddRecord(*it);
+					EasyOSS_Initialize(EasyRecordSession::sOSSBucketName, 
+										EasyRecordSession::sOSSEndpoint,
+										EasyRecordSession::sOSSPort,
+										EasyRecordSession::sOSSAccessKeyID,
+										EasyRecordSession::sOSSAccessKeySecret);
+					size_t res_size = 2048;
+					EasyOSS_URL *res = new EasyOSS_URL[res_size];
+
+					int cout = EasyOSS_List(sName, sBEGIN, sEND, res, res_size);
+					for (int i = 0; i < cout; i++)
+					{						
+						ack.AddRecord(res[i].url);
+					}
+					
+					delete []res;
+				}
+				else
+				{
+					vector<string> *records = new vector<string>;
+					theErr = Easy_ListRecordFiles(sName, sBEGIN, sEND, records);
+					
+					for(vector<string>::iterator it = records->begin(); it != records->end(); it++)
+					{
+						ack.AddRecord(*it);
+					}
+					
+					delete records;
 				}
 				msg = ack.GetMsg();
-				delete records;
 			}
 		}
 

@@ -4,6 +4,7 @@
 #include <iostream>
 #include "EasyRecordSession.h"
 #include <boost/algorithm/string.hpp>
+#include <libEasyOSS.h>
 
 EasyRecordQuery::EasyRecordQuery(const char* path, const char* name)
 : path_(path)
@@ -17,9 +18,19 @@ EasyRecordQuery::~EasyRecordQuery(void)
 
 bool EasyRecordQuery::List(const char *begin, const char *end, vector<string> *records)
 {
-
-	GetM3U8(begin, end, records);
-
+	//if(EasyRecordSession::sRecordToWhere == 0)
+	//{
+	//	EasyOSS_Initialize(EasyRecordSession::sOSSBucketName, 
+	//		EasyRecordSession::sOSSEndpoint,
+	//		EasyRecordSession::sOSSPort,
+	//		EasyRecordSession::sOSSAccessKeyID,
+	//		EasyRecordSession::sOSSAccessKeySecret);//"oss-cn-hangzhou.aliyuncs.com", 80, "ayO28eQpxOntWuzV", "MJQD5mE27JCTIwBdrbofmSPjgDoAkG");
+	//	EasyOSS_List(name_.c_str(), begin, end, records);
+	//}
+	//else
+	{
+		GetM3U8(begin, end, records);
+	}
 	return !records->empty();
 }
 
