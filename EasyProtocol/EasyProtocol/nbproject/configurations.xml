@@ -60,7 +60,7 @@
       <item path="EasyUtil.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
-    <conf name="Release" type="3">
+    <conf name="i386" type="3">
       <toolsSet>
         <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>

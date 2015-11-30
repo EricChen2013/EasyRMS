@@ -23,7 +23,7 @@ AS=as
 # Macros
 CND_PLATFORM=GNU-Linux-x86
 CND_DLIB_EXT=so
-CND_CONF=x64
+CND_CONF=i386
 CND_DISTDIR=dist
 CND_BUILDDIR=build
 
@@ -81,11 +81,11 @@ OBJECTFILES= \
 
 
 # C Compiler Flags
-CFLAGS=-fPIC
+CFLAGS=-m32 -fPIC
 
 # CC Compiler Flags
-CCFLAGS=-fPIC
-CXXFLAGS=-fPIC
+CCFLAGS=-m32 -fPIC
+CXXFLAGS=-m32 -fPIC
 
 # Fortran Compiler Flags
 FFLAGS=

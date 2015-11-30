@@ -136,9 +136,9 @@
           <incDir>
             <pElem>.</pElem>
             <pElem>../Include</pElem>
-            <pElem>../EasyDarwin/APICommonCode</pElem>
-            <pElem>../EasyDarwin/APIStubLib</pElem>
-            <pElem>../EasyDarwin/RTPMetaInfoLib</pElem>
+            <pElem>../EasyRMS/APICommonCode</pElem>
+            <pElem>../EasyRMS/APIStubLib</pElem>
+            <pElem>../EasyRMS/RTPMetaInfoLib</pElem>
           </incDir>
           <incFile>
             <pElem>../Include/PlatformHeader.h</pElem>
@@ -324,7 +324,7 @@
       <item path="md5digest.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
-    <conf name="Release" type="3">
+    <conf name="i386" type="3">
       <toolsSet>
         <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
@@ -351,9 +351,9 @@
           <incDir>
             <pElem>.</pElem>
             <pElem>../Include</pElem>
-            <pElem>../EasyDarwin/APICommonCode</pElem>
-            <pElem>../EasyDarwin/APIStubLib</pElem>
-            <pElem>../EasyDarwin/RTPMetaInfoLib</pElem>
+            <pElem>../EasyRMS/APICommonCode</pElem>
+            <pElem>../EasyRMS/APIStubLib</pElem>
+            <pElem>../EasyRMS/RTPMetaInfoLib</pElem>
           </incDir>
           <incFile>
             <pElem>../Include/PlatformHeader.h</pElem>
@@ -572,9 +572,9 @@
           <incDir>
             <pElem>.</pElem>
             <pElem>../Include</pElem>
-            <pElem>../EasyDarwin/APICommonCode</pElem>
-            <pElem>../EasyDarwin/APIStubLib</pElem>
-            <pElem>../EasyDarwin/RTPMetaInfoLib</pElem>
+            <pElem>../EasyRMS/APICommonCode</pElem>
+            <pElem>../EasyRMS/APIStubLib</pElem>
+            <pElem>../EasyRMS/RTPMetaInfoLib</pElem>
           </incDir>
           <incFile>
             <pElem>../Include/PlatformHeader.h</pElem>
@@ -793,9 +793,9 @@
           <incDir>
             <pElem>.</pElem>
             <pElem>../Include</pElem>
-            <pElem>../EasyDarwin/APICommonCode</pElem>
-            <pElem>../EasyDarwin/APIStubLib</pElem>
-            <pElem>../EasyDarwin/RTPMetaInfoLib</pElem>
+            <pElem>../EasyRMS/APICommonCode</pElem>
+            <pElem>../EasyRMS/APIStubLib</pElem>
+            <pElem>../EasyRMS/RTPMetaInfoLib</pElem>
           </incDir>
           <incFile>
             <pElem>../Include/PlatformHeader.h</pElem>

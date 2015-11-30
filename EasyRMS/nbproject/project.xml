@@ -3,11 +3,11 @@
     <type>org.netbeans.modules.cnd.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>EasyCMS</name>
+            <name>EasyRMS</name>
             <c-extensions/>
             <cpp-extensions>cpp</cpp-extensions>
             <header-extensions>h</header-extensions>
-            <sourceEncoding>UTF-8</sourceEncoding>
+            <sourceEncoding>GB2312</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>APICommonCode</sourceRootElem>
@@ -18,6 +18,7 @@
                 <sourceRootElem>PrefsSourceLib</sourceRootElem>
                 <sourceRootElem>../OSMemoryLib</sourceRootElem>
                 <sourceRootElem>../HTTPUtilitiesLib</sourceRootElem>
+                <sourceRootElem>APIModules/EasyRecordModule</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
@@ -25,7 +26,7 @@
                     <type>1</type>
                 </confElem>
                 <confElem>
-                    <name>Release</name>
+                    <name>i386</name>
                     <type>1</type>
                 </confElem>
                 <confElem>

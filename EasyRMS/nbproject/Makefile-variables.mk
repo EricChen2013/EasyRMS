@@ -9,27 +9,27 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=Debug
-CND_ARTIFACT_NAME_Debug=easycms
-CND_ARTIFACT_PATH_Debug=Debug/easycms
+CND_ARTIFACT_NAME_Debug=easyrms
+CND_ARTIFACT_PATH_Debug=Debug/easyrms
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=easycms.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/easycms.tar
-# Release configuration
-CND_PLATFORM_Release=GNU-Linux-x86
-CND_ARTIFACT_DIR_Release=Release
-CND_ARTIFACT_NAME_Release=easycms
-CND_ARTIFACT_PATH_Release=Release/easycms
-CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=easycms.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/easycms.tar
+CND_PACKAGE_NAME_Debug=easyrms.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/easyrms.tar
+# i386 configuration
+CND_PLATFORM_i386=GNU-Linux-x86
+CND_ARTIFACT_DIR_i386=i386
+CND_ARTIFACT_NAME_i386=easyrms
+CND_ARTIFACT_PATH_i386=i386/easyrms
+CND_PACKAGE_DIR_i386=dist/i386/GNU-Linux-x86/package
+CND_PACKAGE_NAME_i386=easyrms.tar
+CND_PACKAGE_PATH_i386=dist/i386/GNU-Linux-x86/package/easyrms.tar
 # x64 configuration
 CND_PLATFORM_x64=GNU-Linux-x86
 CND_ARTIFACT_DIR_x64=x64
-CND_ARTIFACT_NAME_x64=easycms
-CND_ARTIFACT_PATH_x64=x64/easycms
+CND_ARTIFACT_NAME_x64=easyrms
+CND_ARTIFACT_PATH_x64=x64/easyrms
 CND_PACKAGE_DIR_x64=dist/x64/GNU-Linux-x86/package
-CND_PACKAGE_NAME_x64=easycms.tar
-CND_PACKAGE_PATH_x64=dist/x64/GNU-Linux-x86/package/easycms.tar
+CND_PACKAGE_NAME_x64=easyrms.tar
+CND_PACKAGE_PATH_x64=dist/x64/GNU-Linux-x86/package/easyrms.tar
 #
 # include compiler specific variables
 #

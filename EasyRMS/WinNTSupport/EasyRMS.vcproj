@@ -164,7 +164,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib wsock32.lib winmm.lib libEasyHLS.lib libEasyRTSPClient.lib"
+				AdditionalDependencies="ws2_32.lib wsock32.lib winmm.lib  libEasyHLSRecord.lib libEasyRTSPClient.lib libEasyOSS.lib"
 				OutputFile="..\WinNTSupport\Release\EasyRMS.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"

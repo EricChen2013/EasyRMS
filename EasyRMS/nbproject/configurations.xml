@@ -23,6 +23,16 @@
       <itemPath>APIStubLib/QTSS_Private.cpp</itemPath>
       <itemPath>APIStubLib/QTSS_Private.h</itemPath>
     </logicalFolder>
+    <logicalFolder name="EasyRecordModule"
+                   displayName="EasyRecordModule"
+                   projectFiles="true">
+      <itemPath>APIModules/EasyRecordModule/EasyRecordModule.cpp</itemPath>
+      <itemPath>APIModules/EasyRecordModule/EasyRecordModule.h</itemPath>
+      <itemPath>APIModules/EasyRecordModule/EasyRecordQuery.cpp</itemPath>
+      <itemPath>APIModules/EasyRecordModule/EasyRecordQuery.h</itemPath>
+      <itemPath>APIModules/EasyRecordModule/EasyRecordSession.cpp</itemPath>
+      <itemPath>APIModules/EasyRecordModule/EasyRecordSession.h</itemPath>
+    </logicalFolder>
     <logicalFolder name="HTTPUtilitiesLib"
                    displayName="HTTPUtilitiesLib"
                    projectFiles="true">
@@ -51,14 +61,16 @@
     <logicalFolder name="Server.tproj"
                    displayName="Server.tproj"
                    projectFiles="true">
-      <itemPath>Server.tproj/BaseRequestStream.cpp</itemPath>
-      <itemPath>Server.tproj/BaseRequestStream.h</itemPath>
-      <itemPath>Server.tproj/BaseResponseStream.cpp</itemPath>
-      <itemPath>Server.tproj/BaseResponseStream.h</itemPath>
-      <itemPath>Server.tproj/BaseSessionInterface.cpp</itemPath>
-      <itemPath>Server.tproj/BaseSessionInterface.h</itemPath>
       <itemPath>Server.tproj/GenerateXMLPrefs.cpp</itemPath>
       <itemPath>Server.tproj/GenerateXMLPrefs.h</itemPath>
+      <itemPath>Server.tproj/HTTPRequestStream.cpp</itemPath>
+      <itemPath>Server.tproj/HTTPRequestStream.h</itemPath>
+      <itemPath>Server.tproj/HTTPResponseStream.cpp</itemPath>
+      <itemPath>Server.tproj/HTTPResponseStream.h</itemPath>
+      <itemPath>Server.tproj/HTTPSession.cpp</itemPath>
+      <itemPath>Server.tproj/HTTPSession.h</itemPath>
+      <itemPath>Server.tproj/HTTPSessionInterface.cpp</itemPath>
+      <itemPath>Server.tproj/HTTPSessionInterface.h</itemPath>
       <itemPath>Server.tproj/QTSSCallbacks.cpp</itemPath>
       <itemPath>Server.tproj/QTSSCallbacks.h</itemPath>
       <itemPath>Server.tproj/QTSSDataConverter.cpp</itemPath>
@@ -86,13 +98,9 @@
       <itemPath>Server.tproj/QTSServerInterface.h</itemPath>
       <itemPath>Server.tproj/QTSServerPrefs.cpp</itemPath>
       <itemPath>Server.tproj/QTSServerPrefs.h</itemPath>
-      <itemPath>Server.tproj/RTSPProtocol.cpp</itemPath>
-      <itemPath>Server.tproj/RTSPProtocol.h</itemPath>
       <itemPath>Server.tproj/RunServer.cpp</itemPath>
       <itemPath>Server.tproj/RunServer.h</itemPath>
-      <itemPath>Server.tproj/ServiceSession.cpp</itemPath>
       <itemPath>Server.tproj/main.cpp</itemPath>
-      <itemPath>Server.tproj/servicesession.h</itemPath>
     </logicalFolder>
     <logicalFolder name="HeaderFiles" displayName="头文件" projectFiles="true">
     </logicalFolder>
@@ -121,6 +129,7 @@
     <Elem>PrefsSourceLib</Elem>
     <Elem>../OSMemoryLib</Elem>
     <Elem>../HTTPUtilitiesLib</Elem>
+    <Elem>APIModules/EasyRecordModule</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -143,17 +152,20 @@
             <pElem>.</pElem>
             <pElem>../EasyProtocol/Include</pElem>
             <pElem>../EasyProtocol/jsoncpp/include</pElem>
+            <pElem>Include</pElem>
+            <pElem>APIModules/EasyRecordModule</pElem>
           </incDir>
           <incFile>
             <pElem>../Include/PlatformHeader.h</pElem>
           </incFile>
         </ccTool>
         <linkerTool>
-          <output>${CND_CONF}/easycms</output>
+          <output>${CND_CONF}/easyrms</output>
           <linkerAddLib>
             <pElem>../CommonUtilitiesLib/${CND_CONF}</pElem>
             <pElem>../EasyProtocol/EasyProtocol/${CND_CONF}</pElem>
             <pElem>../EasyProtocol/jsoncpp/${CND_CONF}</pElem>
+            <pElem>Lib/linux/${CND_CONF}</pElem>
           </linkerAddLib>
           <commandLine>-lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp</commandLine>
         </linkerTool>
@@ -206,6 +218,36 @@
       </item>
       <item path="APICommonCode/SourceInfo.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordModule.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordModule.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordQuery.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordQuery.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordSession.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordSession.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="APIStubLib/QTSS.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="APIStubLib/QTSSRTSPProtocol.h" ex="false" tool="3" flavor2="0">
@@ -228,30 +270,34 @@
       </item>
       <item path="PrefsSourceLib/XMLPrefsParser.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Server.tproj/BaseRequestStream.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseRequestStream.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseResponseStream.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseResponseStream.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseSessionInterface.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseSessionInterface.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="Server.tproj/GenerateXMLPrefs.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Server.tproj/GenerateXMLPrefs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPRequestStream.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPRequestStream.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPResponseStream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPResponseStream.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSession.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSession.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSessionInterface.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSessionInterface.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="Server.tproj/QTSSCallbacks.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -316,22 +362,14 @@
       </item>
       <item path="Server.tproj/QTSServerPrefs.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Server.tproj/RTSPProtocol.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Server.tproj/RTSPProtocol.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Server.tproj/RunServer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Server.tproj/RunServer.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Server.tproj/ServiceSession.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Server.tproj/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Server.tproj/servicesession.h" ex="false" tool="3" flavor2="0">
-      </item>
     </conf>
-    <conf name="Release" type="1">
+    <conf name="i386" type="1">
       <toolsSet>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
@@ -354,6 +392,8 @@
             <pElem>.</pElem>
             <pElem>../EasyProtocol/Include</pElem>
             <pElem>../EasyProtocol/jsoncpp/include</pElem>
+            <pElem>Include</pElem>
+            <pElem>APIModules/EasyRecordModule</pElem>
           </incDir>
           <incFile>
             <pElem>../Include/PlatformHeader.h</pElem>
@@ -367,13 +407,14 @@
           <developmentMode>5</developmentMode>
         </asmTool>
         <linkerTool>
-          <output>${CND_CONF}/easycms</output>
+          <output>${CND_CONF}/easyrms</output>
           <linkerAddLib>
             <pElem>../CommonUtilitiesLib/${CND_CONF}</pElem>
             <pElem>../EasyProtocol/EasyProtocol/${CND_CONF}</pElem>
             <pElem>../EasyProtocol/jsoncpp/${CND_CONF}</pElem>
+            <pElem>Lib/linux/${CND_CONF}</pElem>
           </linkerAddLib>
-          <commandLine>-lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp</commandLine>
+          <commandLine>-lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp -lboost_system -lboost_filesystem -leasyoss -leasyhlsrecord -loss_c_sdk -leasyrtspclient -lapr-1 -laprutil-1 -lcurl -lxml2 -lrt</commandLine>
         </linkerTool>
       </compileType>
       <item path="../HTTPUtilitiesLib/HTTPProtocol.cpp"
@@ -424,6 +465,36 @@
       </item>
       <item path="APICommonCode/SourceInfo.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordModule.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordModule.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordQuery.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordQuery.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordSession.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordSession.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="APIStubLib/QTSS.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="APIStubLib/QTSSRTSPProtocol.h" ex="false" tool="3" flavor2="0">
@@ -446,30 +517,34 @@
       </item>
       <item path="PrefsSourceLib/XMLPrefsParser.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Server.tproj/BaseRequestStream.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseRequestStream.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseResponseStream.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseResponseStream.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseSessionInterface.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseSessionInterface.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="Server.tproj/GenerateXMLPrefs.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Server.tproj/GenerateXMLPrefs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPRequestStream.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPRequestStream.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPResponseStream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPResponseStream.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSession.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSession.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSessionInterface.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSessionInterface.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="Server.tproj/QTSSCallbacks.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -534,19 +609,11 @@
       </item>
       <item path="Server.tproj/QTSServerPrefs.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Server.tproj/RTSPProtocol.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Server.tproj/RTSPProtocol.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Server.tproj/RunServer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Server.tproj/RunServer.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Server.tproj/ServiceSession.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Server.tproj/main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Server.tproj/servicesession.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="x64" type="1">
@@ -572,6 +639,8 @@
             <pElem>.</pElem>
             <pElem>../EasyProtocol/Include</pElem>
             <pElem>../EasyProtocol/jsoncpp/include</pElem>
+            <pElem>Include</pElem>
+            <pElem>APIModules/EasyRecordModule</pElem>
           </incDir>
           <incFile>
             <pElem>../Include/PlatformHeader.h</pElem>
@@ -584,13 +653,14 @@
           <developmentMode>5</developmentMode>
         </asmTool>
         <linkerTool>
-          <output>${CND_CONF}/easycms</output>
+          <output>${CND_CONF}/easyrms</output>
           <linkerAddLib>
             <pElem>../CommonUtilitiesLib/${CND_CONF}</pElem>
             <pElem>../EasyProtocol/EasyProtocol/${CND_CONF}</pElem>
             <pElem>../EasyProtocol/jsoncpp/${CND_CONF}</pElem>
+            <pElem>Lib/linux/${CND_CONF}</pElem>
           </linkerAddLib>
-          <commandLine>-lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp</commandLine>
+          <commandLine>-lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp -lboost_system -lboost_filesystem -leasyoss -leasyhlsrecord -loss_c_sdk -leasyrtspclient -lapr-1 -laprutil-1 -lcurl -lxml2 -lrt</commandLine>
         </linkerTool>
       </compileType>
       <item path="../HTTPUtilitiesLib/HTTPProtocol.cpp"
@@ -641,6 +711,36 @@
       </item>
       <item path="APICommonCode/SourceInfo.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordModule.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordModule.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordQuery.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordQuery.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordSession.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="APIModules/EasyRecordModule/EasyRecordSession.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="APIStubLib/QTSS.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="APIStubLib/QTSSRTSPProtocol.h" ex="false" tool="3" flavor2="0">
@@ -663,30 +763,34 @@
       </item>
       <item path="PrefsSourceLib/XMLPrefsParser.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Server.tproj/BaseRequestStream.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseRequestStream.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseResponseStream.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseResponseStream.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseSessionInterface.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="Server.tproj/BaseSessionInterface.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="Server.tproj/GenerateXMLPrefs.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Server.tproj/GenerateXMLPrefs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPRequestStream.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPRequestStream.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPResponseStream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPResponseStream.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSession.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSession.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSessionInterface.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Server.tproj/HTTPSessionInterface.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="Server.tproj/QTSSCallbacks.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -751,19 +855,11 @@
       </item>
       <item path="Server.tproj/QTSServerPrefs.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Server.tproj/RTSPProtocol.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Server.tproj/RTSPProtocol.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Server.tproj/RunServer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Server.tproj/RunServer.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Server.tproj/ServiceSession.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Server.tproj/main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Server.tproj/servicesession.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

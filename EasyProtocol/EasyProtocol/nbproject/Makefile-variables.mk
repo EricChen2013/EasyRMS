@@ -14,14 +14,14 @@ CND_ARTIFACT_PATH_Debug=Debug/libEasyProtocol.a
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
 CND_PACKAGE_NAME_Debug=EasyProtocol.tar
 CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/EasyProtocol.tar
-# Release configuration
-CND_PLATFORM_Release=GNU-Linux-x86
-CND_ARTIFACT_DIR_Release=Release
-CND_ARTIFACT_NAME_Release=libEasyProtocol.a
-CND_ARTIFACT_PATH_Release=Release/libEasyProtocol.a
-CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=EasyProtocol.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/EasyProtocol.tar
+# i386 configuration
+CND_PLATFORM_i386=GNU-Linux-x86
+CND_ARTIFACT_DIR_i386=i386
+CND_ARTIFACT_NAME_i386=libEasyProtocol.a
+CND_ARTIFACT_PATH_i386=i386/libEasyProtocol.a
+CND_PACKAGE_DIR_i386=dist/i386/GNU-Linux-x86/package
+CND_PACKAGE_NAME_i386=EasyProtocol.tar
+CND_PACKAGE_PATH_i386=dist/i386/GNU-Linux-x86/package/EasyProtocol.tar
 # ARM configuration
 CND_PLATFORM_ARM=GM8126-Linux-x86
 CND_ARTIFACT_DIR_ARM=ARM

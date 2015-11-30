@@ -31,7 +31,7 @@ DEFAULTCONF=Debug
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=Debug Release x64 ARM 
+ALLCONFS=Debug i386 x64 ARM 
 
 
 # build

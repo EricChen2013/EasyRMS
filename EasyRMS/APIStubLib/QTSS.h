@@ -33,6 +33,7 @@
 #define QTSS_H
 #include "OSHeaders.h"
 #include "QTSSRTSPProtocol.h"
+#include <string>
 #include <vector>
 using namespace std;
 
