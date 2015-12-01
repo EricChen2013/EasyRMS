@@ -6,6 +6,7 @@ EasyRMS是EasyDarwin开源流媒体平台的录像与回放服务，能够直接
 
 Windows版本编译，可以直接用Visual Studio 2008打开源码文件中的：EasyRMS/WinNTSupport/EasyRMS.sln解决方案文件，编译出exe可执行文件EasyRMS.exe；
 
+Linux版本编译，进入EasyRMS目录，执行Buildit脚本（./Buildit i386 or ./Buildit x64，目标文件在EasyRMS/i386 or EasyRMS/x64）
 
 ## 配置 ##
 EasyRMS主要的几个配置项：
@@ -33,6 +34,9 @@ EasyRMS主要的几个配置项：
 ## 运行 ##
 Windows版本运行(控制台调试运行)：
 EasyRMS.exe -c ./easyrms.xml -d
+
+Linux版本运行：
+./easyrms -c ./easyrms.xml -d
 
 ## 调用方法 ##
 ### 
@@ -64,8 +68,7 @@ recordName一般为媒体流的ID(或设备ID),例如EasyRMS服务器IP地址是
 
 ## 正在开发 ##
 
-- Linux版本支持
-- 录像检索与回放接口
+- web配置与展示
 
 
 ## 获取更多信息 ##
