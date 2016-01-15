@@ -635,7 +635,7 @@ QTSS_Error HTTPSession::ExecNetMsgEasyHLSModuleReq(char* queryString, char* json
 			if(::strcmp(sCMD,QUERY_STREAM_CMD_STOP) == 0)
 				bStop = true;
 
-			if(::strcmp(sCMD,QUERY_STREAM_CMD_LIST) == 0)
+			if(::strcmp(sCMD,QUERY_STREAM_CMD_LIST) == 0 && sBEGIN != NULL && sEND != NULL)
 			{
 				bList = true;
 				EasyDarwinRecordListAck ack;
