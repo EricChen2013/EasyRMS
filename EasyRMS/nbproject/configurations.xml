@@ -167,7 +167,7 @@
             <pElem>../EasyProtocol/jsoncpp/${CND_CONF}</pElem>
             <pElem>Lib/linux/${CND_CONF}</pElem>
           </linkerAddLib>
-          <commandLine>-lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp</commandLine>
+          <commandLine>-lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp -lboost_system</commandLine>
         </linkerTool>
       </compileType>
       <item path="../HTTPUtilitiesLib/HTTPProtocol.cpp"
@@ -414,7 +414,7 @@
             <pElem>../EasyProtocol/jsoncpp/${CND_CONF}</pElem>
             <pElem>Lib/linux/${CND_CONF}</pElem>
           </linkerAddLib>
-          <commandLine>-lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp -lboost_system -lboost_filesystem -leasyoss -leasyhlsrecord -loss_c_sdk -leasyrtspclient -lapr-1 -laprutil-1 -lcurl -lxml2 -lrt</commandLine>
+          <commandLine>-lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp -leasyoss -leasyhlsrecord -loss_c_sdk -leasyrtspclient -lapr-1 -laprutil-1 -lcurl -lxml2 -lrt -lboost_system -lboost_filesystem</commandLine>
         </linkerTool>
       </compileType>
       <item path="../HTTPUtilitiesLib/HTTPProtocol.cpp"
@@ -660,7 +660,7 @@
             <pElem>../EasyProtocol/jsoncpp/${CND_CONF}</pElem>
             <pElem>Lib/linux/${CND_CONF}</pElem>
           </linkerAddLib>
-          <commandLine>-lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp -lboost_system -lboost_filesystem -leasyoss -leasyhlsrecord -loss_c_sdk -leasyrtspclient -lapr-1 -laprutil-1 -lcurl -lxml2 -lrt</commandLine>
+          <commandLine>-leasyhlsrecord -lboost_filesystem -lboost_system -lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp -leasyoss -loss_c_sdk -leasyrtspclient -lapr-1 -laprutil-1 -lcurl -lxml2 -lrt</commandLine>
         </linkerTool>
       </compileType>
       <item path="../HTTPUtilitiesLib/HTTPProtocol.cpp"

@@ -93,7 +93,7 @@ LDLIBSOPTIONS=-L../CommonUtilitiesLib/${CND_CONF} -L../EasyProtocol/EasyProtocol
 
 ${CND_CONF}/easyrms: ${OBJECTFILES}
 	${MKDIR} -p ${CND_CONF}
-	${LINK.cc} -o ${CND_CONF}/easyrms ${OBJECTFILES} ${LDLIBSOPTIONS} -lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp
+	${LINK.cc} -o ${CND_CONF}/easyrms ${OBJECTFILES} ${LDLIBSOPTIONS} -lCommonUtilitiesLib -ldl -lpthread -lEasyProtocol -ljsoncpp -lboost_system
 
 ${OBJECTDIR}/_ext/1174643662/HTTPProtocol.o: ../HTTPUtilitiesLib/HTTPProtocol.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1174643662
